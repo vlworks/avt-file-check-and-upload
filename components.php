@@ -202,7 +202,6 @@ class CheckAndUpload {
 
         /** run FULL upload */
         if (!$forUploadData['last_file']) {
-            var_dump('EMPTY LAST');
             return ['data' => $_data, 'target_file' => $forUploadData['target']];
         } else {
             /** get diff data and run update */
@@ -240,7 +239,6 @@ class CheckAndUpload {
                 }
             }
 
-            var_dump('ONLY DIFF');
 
             return ['data' => $diff_array, 'target_file' => $forUploadData['target']];
         }
@@ -249,8 +247,6 @@ class CheckAndUpload {
     /** Upload data to remote host */
     private function run($data) : void
     {
-        var_dump('Init run');
-        var_dump($data);
 
         if (is_null($data['target_file'])) {
             $params = ['FS', 'Нет новых файлов', 'cron'];
