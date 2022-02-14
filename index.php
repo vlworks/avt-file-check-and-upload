@@ -1,11 +1,19 @@
 <?php
 
+require_once __DIR__.'/vendor/autoload.php';
+
+use CheckFilesAndUploadData\GetFiles;
+use CheckFilesAndUploadData\GetData;
 
 /**
- * @var array $config
+ * Get Files from local upload folder
  */
-require_once "config.php";
-require_once "components.php";
+$getFiles = new GetFiles('ftp/');
+$files = $getFiles->getFiles();
+print_r($files);
 
-$checkAndUpload = new CheckAndUpload($config);
-$checkAndUpload->init();
+/**
+ * Get data from file
+ */
+$getData = new GetData();
+
